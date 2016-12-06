@@ -11,20 +11,20 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductController {
 
     @Autowired
-    private ProductRepository repository;
+    private ProductService service;
 
     @GetMapping("/api/products")
     public Iterable<ProductEntity> products() {
-        return repository.findAll();
+        return service.findAll();
     }
 
     @GetMapping(value = "/api/products", params = {"title"})
     public Iterable<ProductEntity> getProductsByTitle(@RequestParam String title) {
-        return repository.findByTitleCustomQuery(title);
+        return service.findByTitle(title);
     }
 
     @PostMapping("/api/products")
     public ProductEntity createOrUpdateProduct(@RequestBody ProductEntity p) {
-        return repository.save(p);
+        return service.save(p);
     }
 }

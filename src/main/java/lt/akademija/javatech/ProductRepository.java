@@ -1,18 +1,31 @@
 package lt.akademija.javatech;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import java.util.List;
 
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ProductRepository extends CrudRepository<ProductEntity, Long> {
+public class ProductRepository {
 
-    List<ProductEntity> findByTitle(String title);
+    @Autowired
+    private EntityManager em;
 
-    //Same as findByTitle. Just implemented using custom JPQL query as an example
-    @Query("SELECT p FROM ProductEntity p WHERE p.title = :title")
-    List<ProductEntity> findByTitleCustomQuery(@Param("title") String title);
+
+    public ProductEntity save(ProductEntity p) {
+        em.persist(p);
+        return p;
+    }
+
+    public List<ProductEntity> findAll() {
+        return em.createQuery("SELECT p from ProductEntity p").getResultList();
+    }
+
+    public List<ProductEntity> findByTitle(String title) {
+        Query q = em.createQuery("SELECT p FROM ProductEntity p WHERE p.title = :title");
+        q.setParameter("title", title);
+        return q.getResultList();
+    }
 }

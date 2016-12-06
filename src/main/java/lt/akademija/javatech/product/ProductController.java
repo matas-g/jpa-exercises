@@ -1,4 +1,4 @@
-package lt.akademija.javatech;
+package lt.akademija.javatech.product;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

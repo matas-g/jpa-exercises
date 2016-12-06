@@ -1,21 +1,20 @@
-package lt.akademija.javatech;
+package lt.akademija.javatech.product;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
-public class ProductEntity {
+public class ProductDetailsEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    @Column
-    private String title;
-
+    private String details;
+    @OneToOne(mappedBy = "details")
+    private ProductEntity product;
     public Long getId() {
         return id;
     }
@@ -24,11 +23,11 @@ public class ProductEntity {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getDetails() {
+        return details;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setDetails(String details) {
+        this.details = details;
     }
 }

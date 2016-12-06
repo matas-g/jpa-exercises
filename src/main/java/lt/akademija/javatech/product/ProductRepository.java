@@ -1,4 +1,4 @@
-package lt.akademija.javatech;
+package lt.akademija.javatech.product;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -13,10 +13,15 @@ public class ProductRepository {
     @Autowired
     private EntityManager em;
 
-
     public ProductEntity save(ProductEntity p) {
-        em.persist(p);
-        return p;
+        if (p.getId() == null) {
+            em.persist(p);
+            return p;
+        } else {
+            ProductEntity merged = em.merge(p);
+            em.persist(merged);
+            return merged;
+        }
     }
 
     public List<ProductEntity> findAll() {

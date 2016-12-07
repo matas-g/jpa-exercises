@@ -13,6 +13,10 @@ public class CartRepository {
     @Autowired
     private EntityManager em;
 
+    public CartEntity find(Long id) {
+        return em.find(CartEntity.class, id);
+    }
+
     public CartEntity save(CartEntity c) {
         if (c.getId() == null) {
             em.persist(c);

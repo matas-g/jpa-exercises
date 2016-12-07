@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class ProductSpecEntity {
@@ -14,8 +13,6 @@ public class ProductSpecEntity {
     private Long id;
     private String key;
     private String value;
-    @ManyToOne
-    private ProductEntity product;
 
     public Long getId() {
         return id;
@@ -39,13 +36,5 @@ public class ProductSpecEntity {
 
     public void setValue(String value) {
         this.value = value;
-    }
-
-    public ProductEntity getProduct() {
-        return product;
-    }
-
-    public void setProduct(ProductEntity product) {
-        this.product = product;
     }
 }

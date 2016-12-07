@@ -1,7 +1,6 @@
 package lt.akademija.javatech.cart;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,7 +18,6 @@ public class CartController {
     }
 
     @PostMapping("/api/carts")
-    @Transactional
     public CartEntity createOrUpdateProduct(@RequestBody CartEntity c) {
         return service.save(c);
     }

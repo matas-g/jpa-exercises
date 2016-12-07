@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -21,7 +22,8 @@ public class ProductEntity {
     private String title;
     @OneToOne(cascade = CascadeType.ALL)
     private ProductDetailsEntity details;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "product_id")
     private List<ProductSpecEntity> specifications;
     @ManyToMany(mappedBy = "products")
     private List<CartEntity> carts;
@@ -47,5 +49,21 @@ public class ProductEntity {
 
     public void setDetails(ProductDetailsEntity details) {
         this.details = details;
+    }
+
+    public List<ProductSpecEntity> getSpecifications() {
+        return specifications;
+    }
+
+    public void setSpecifications(List<ProductSpecEntity> specifications) {
+        this.specifications = specifications;
+    }
+
+    public List<CartEntity> getCarts() {
+        return carts;
+    }
+
+    public void setCarts(List<CartEntity> carts) {
+        this.carts = carts;
     }
 }

@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import java.util.Date;
 import java.util.List;
 
 import lt.akademija.javatech.product.ProductEntity;
@@ -18,6 +19,25 @@ public class CartEntity {
 
     @ManyToMany
     private List<ProductEntity> products;
+
+    private Date createdOn;
+    private Date updatedOn;
+
+    public Date getCreatedOn() {
+        return createdOn;
+    }
+
+    public void setCreatedOn(Date createdOn) {
+        this.createdOn = createdOn;
+    }
+
+    public Date getUpdatedOn() {
+        return updatedOn;
+    }
+
+    public void setUpdatedOn(Date updatedOn) {
+        this.updatedOn = updatedOn;
+    }
 
     public Long getId() {
         return id;

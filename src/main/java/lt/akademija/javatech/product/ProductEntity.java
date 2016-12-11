@@ -11,6 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lt.akademija.javatech.cart.CartEntity;
 
 @Entity
@@ -26,6 +27,7 @@ public class ProductEntity {
     @JoinColumn(name = "product_id")
     private List<ProductSpecEntity> specifications;
     @ManyToMany(mappedBy = "products")
+    @JsonManagedReference
     private List<CartEntity> carts;
     public Long getId() {
         return id;

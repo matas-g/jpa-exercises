@@ -8,6 +8,7 @@ import javax.persistence.ManyToMany;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lt.akademija.javatech.product.ProductEntity;
 
 @Entity
@@ -18,6 +19,7 @@ public class CartEntity {
     private Long id;
 
     @ManyToMany
+    @JsonBackReference
     private List<ProductEntity> products;
 
     private Date createdOn;

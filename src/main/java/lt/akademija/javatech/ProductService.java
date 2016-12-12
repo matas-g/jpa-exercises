@@ -1,6 +1,5 @@
 package lt.akademija.javatech;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +12,7 @@ public class ProductService {
     @Autowired
     private ProductRepository repository;
 
+    @Transactional(readOnly = true)
     public List<ProductEntity> getProducts() {
         return repository.getProducts();
     }
@@ -20,5 +20,11 @@ public class ProductService {
     @Transactional
     public ProductEntity save(ProductEntity p) {
         return repository.save(p);
+    }
+
+    // ex01
+    @Transactional(readOnly = true)
+    public List<ProductEntity> getProductsByTitle(String title) {
+        return repository.getProductsByTitle(title);
     }
 }

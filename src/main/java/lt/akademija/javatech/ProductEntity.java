@@ -5,14 +5,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+// Klases pavadinimas = Lenteles pavadinimas
 @Entity
 public class ProductEntity {
 
+    // stulpelis: id = pirminis raktas, generuojamas automatiškai
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
+    // stulpelis: title
     private String title;
 
+    // Getters and Setters
     public Long getId() {
         return id;
     }

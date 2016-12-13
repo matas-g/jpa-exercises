@@ -26,10 +26,6 @@ public class ProductEntity {
      * nauja stulpeli DETAILS_ID - jame atsiranda nuoroda i ProductDetailsEntity
      * ID.
      */
-    /* 
-     * TIP - pildant JSON, stulpelio pavadinimas turi sutapti ne su situo pavadinimu
-     * (pDetails), o turbut su Setteriu/Getteriu parametru pavadinimais. 
-     */
     @OneToOne(cascade = CascadeType.ALL)
     private ProductDetailsEntity pDetails;
 
@@ -46,16 +42,16 @@ public class ProductEntity {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public ProductDetailsEntity getDetails() {
+    public ProductDetailsEntity getpDetails() {
         return pDetails;
     }
 
-    public void setDetails(ProductDetailsEntity details) {
-        this.pDetails = details;
+    public void setpDetails(ProductDetailsEntity pDetails) {
+        this.pDetails = pDetails;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
 }

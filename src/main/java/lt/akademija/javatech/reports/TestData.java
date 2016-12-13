@@ -28,8 +28,9 @@ public class TestData {
     public void preloadData() {
         template.execute(t -> {
             addToCart(createProduct("Dell", true), 5);
-            addToCart(createProduct("Lenovo", false), 20);
+            addToCart(createProduct("ShouldNotBeReturnedNoSpec", false), 20);
             addToCart(createProduct("HP", true), 89);
+            addToCart(createProduct("ShouldNotBeReturnedNotInCart", true), 0);
             addToCart(createProduct("Šilelis", true), 789);
             return null;
         });

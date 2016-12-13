@@ -1,10 +1,14 @@
 package lt.akademija.javatech;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -26,12 +30,18 @@ public class ProductEntity {
      * nauja stulpeli DETAILS_ID - jame atsiranda nuoroda i ProductDetailsEntity
      * ID.
      */
-    /* 
-     * TIP - pildant JSON, stulpelio pavadinimas turi sutapti ne su situo pavadinimu
-     * (pDetails), o turbut su Setteriu/Getteriu parametru pavadinimais. 
+    /*
+     * TIP - pildant JSON, stulpelio pavadinimas turi sutapti ne su situo
+     * pavadinimu (details), o turbut su Setteriu/Getteriu parametru
+     * pavadinimais (details).
      */
     @OneToOne(cascade = CascadeType.ALL)
-    private ProductDetailsEntity pDetails;
+    private ProductDetailsEntity details;
+
+    // ex03
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "PRODUCT_ID")
+    private List<ProductSpecEntity> specifications;
 
     // Getters and Setters
     public Long getId() {
@@ -51,11 +61,19 @@ public class ProductEntity {
     }
 
     public ProductDetailsEntity getDetails() {
-        return pDetails;
+        return details;
     }
 
     public void setDetails(ProductDetailsEntity details) {
-        this.pDetails = details;
+        this.details = details;
+    }
+
+    public List<ProductSpecEntity> getSpecifications() {
+        return specifications;
+    }
+
+    public void setSpecifications(List<ProductSpecEntity> specifications) {
+        this.specifications = specifications;
     }
 
 }

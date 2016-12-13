@@ -3,12 +3,10 @@
  */
 package lt.akademija.javatech;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 @Entity
 public class ProductDetailsEntity {
@@ -33,8 +31,8 @@ public class ProductDetailsEntity {
      * Prie mappedBy turi buti nurodytas tevineje Entity klaseje sukurto
      * ProductDetails objekto pavadinimas.
      */
-    @OneToOne(mappedBy = "pDetails", cascade = CascadeType.ALL)
-    private ProductEntity product;
+    // @OneToOne(mappedBy = "details", cascade = CascadeType.ALL)
+    // private ProductEntity product;
 
     // Getters and Setters
     public Long getId() {

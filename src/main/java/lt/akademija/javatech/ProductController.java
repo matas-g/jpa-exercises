@@ -7,12 +7,25 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import lt.akademija.javatech.entity.ProductDetailsEntity;
+import lt.akademija.javatech.entity.ProductEntity;
+
 @RestController
 public class ProductController {
 
     @Autowired
     private ProductService service;
 
+//    @PostMapping("/api/products")
+//    public ProductEntity createOrUpdateProduct(@RequestBody ProductEntity p) {
+//        return service.save(p);
+//    }
+    
+    @PostMapping("/api/products")
+    public ProductDetailsEntity createOrUpdateProductDetails(@RequestBody ProductDetailsEntity d) {
+        return service.saveDetails(d);
+    }
+    
     @GetMapping("/api/products")
     public Iterable<ProductEntity> products() {
         return service.findAll();
@@ -23,8 +36,4 @@ public class ProductController {
         return service.findByTitle(title);
     }
 
-    @PostMapping("/api/products")
-    public ProductEntity createOrUpdateProduct(@RequestBody ProductEntity p) {
-        return service.save(p);
-    }
 }

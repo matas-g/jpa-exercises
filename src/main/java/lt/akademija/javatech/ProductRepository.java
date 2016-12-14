@@ -25,8 +25,13 @@ public class ProductRepository {
     }
 
     // ex01
+    /*
+     * TIP: i query rasomi lenteliu stulpeliu pavadinimai gali sutapti:
+     * - tiek su Entity ir jos Field'u pavadinimais,
+     * - tiek su per anotacijas (@Table / @Column) suteiktais vardais.
+     */
     public List<ProductEntity> getProductsByTitle(String title) {
-        Query q = em.createQuery("SELECT p FROM ProductEntity p WHERE p.title = :title");
+        Query q = em.createQuery("SELECT p FROM Products p WHERE p.title = :title");
         q.setParameter("title", title);
         return q.getResultList();
     }

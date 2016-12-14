@@ -1,20 +1,25 @@
 package lt.akademija.javatech;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-// Klases pavadinimas = Lenteles pavadinimas
+// Klases pavadinimas = Lenteles pavadinimas, jei nenaudojama @Table anotacija su name.
 @Entity
+@Table(name = "products")
 public class ProductEntity {
 
     // stulpelis: id = pirminis raktas, generuojamas automatiškai
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Long id;
     
     // stulpelis: title
+    @Column(name = "title")
     private String title;
 
     // Getters and Setters

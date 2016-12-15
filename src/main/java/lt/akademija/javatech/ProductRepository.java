@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import lt.akademija.javatech.entity.ProductDetailsEntity;
 import lt.akademija.javatech.entity.ProductEntity;
 
 @Repository
@@ -36,13 +35,6 @@ public class ProductRepository implements ProductRepositoryInterface {
     public ProductEntity save(ProductEntity p) {
         em.persist(p);
         return p;
-    }
-
-    @Override
-    @Transactional
-    public ProductDetailsEntity saveDetails(ProductDetailsEntity d) {
-        em.persist(d);
-        return d;
     }
 
     // GET

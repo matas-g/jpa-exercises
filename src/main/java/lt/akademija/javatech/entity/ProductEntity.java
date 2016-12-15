@@ -10,8 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 @Entity
 @Table(name = "PRODUCTS")
 public class ProductEntity {
@@ -31,19 +29,16 @@ public class ProductEntity {
      * ir t.t.
      * 
      * vienpusis sarysis is produkto i detales. ProductEntity lenteleje sukuria
-     * nauja stulpeli DETAILS_ID - jame atsiranda nuoroda i ProductDetailsEntity
-     * ID.
+     * nauja stulpeli PRODUCTDETAILS_ID (PRODUCT_DETAILS_ID)
+     * - jame atsiranda nuoroda i ProductDetailsEntity ID.
      */
     
     /*
-     * TODO
-     * - pagal mokytojo pvz issiaiskint kaip ignorint lauka su NULL kai Bi-directional
-     * - kaip patikrint Bi-directional one-one?
+     * TODO - pazaist / pasibandyt Bi-directional
+     * @JsonManagedReference - reikalingas kai Bi-directional
      */
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "PRODUCT_DETAILS_ID")
-    // TODO
-    // @JsonManagedReference
     private ProductDetailsEntity productDetails;
 
     

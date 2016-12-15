@@ -4,14 +4,12 @@ import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import lt.akademija.javatech.entity.ProductDetailsEntity;
 import lt.akademija.javatech.entity.ProductEntity;
 
 @Transactional(readOnly = true)
 public interface ProductRepositoryInterface {
 
     public ProductEntity save(ProductEntity p);
-    public ProductDetailsEntity saveDetails(ProductDetailsEntity d);
     
     public List<ProductEntity> findAll();
     public List<ProductEntity> findByTitle(String title);

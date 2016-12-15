@@ -14,46 +14,53 @@ import lt.akademija.javatech.product.ProductEntity;
 @Entity
 public class CartEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 
-    @ManyToMany
-    @JsonBackReference
-    private List<ProductEntity> products;
+	@ManyToMany
+	@JsonBackReference
+	private List<ProductEntity> products;
 
-    private Date createdOn;
-    private Date updatedOn;
+	private Date createdOn;
+	private Date updatedOn;
 
-    public Date getCreatedOn() {
-        return createdOn;
-    }
+	// pvz - sudetingesnems situacijoms. Reiketu prideti ir i ProductEntity
+	/*
+	 * public void addProduct(ProductEntity p) {
+	 * products.add(p);
+	 * p.getCarts().add(this); }
+	 */
 
-    public void setCreatedOn(Date createdOn) {
-        this.createdOn = createdOn;
-    }
+	public Date getCreatedOn() {
+		return createdOn;
+	}
 
-    public Date getUpdatedOn() {
-        return updatedOn;
-    }
+	public void setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
+	}
 
-    public void setUpdatedOn(Date updatedOn) {
-        this.updatedOn = updatedOn;
-    }
+	public Date getUpdatedOn() {
+		return updatedOn;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public void setUpdatedOn(Date updatedOn) {
+		this.updatedOn = updatedOn;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public List<ProductEntity> getProducts() {
-        return products;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public void setProducts(List<ProductEntity> products) {
-        this.products = products;
-    }
+	public List<ProductEntity> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<ProductEntity> products) {
+		this.products = products;
+	}
 }

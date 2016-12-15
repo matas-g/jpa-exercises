@@ -3,17 +3,22 @@ package lt.akademija.javatech;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import lt.akademija.javatech.entity.ProductEntity;
 
 @Repository
-public class ProductRepository {
+public class ProductRepository implements ProductRepositoryInterface {
 
     @Autowired
     private EntityManager em;
 
+    @Override
+    @Transactional
     public ProductEntity save(ProductEntity p) {
         if (p.getId() == null) {
             em.persist(p);
@@ -25,13 +30,16 @@ public class ProductRepository {
         }
     }
 
+    @Override
     public List<ProductEntity> findAll() {
-        return em.createQuery("SELECT p from ProductEntity p").getResultList();
+        TypedQuery<ProductEntity> query = em.createQuery("SELECT p FROM ProductEntity p", ProductEntity.class);
+        return query.getResultList();
     }
 
+    @Override
     public List<ProductEntity> findByTitle(String title) {
-        Query q = em.createQuery("SELECT p FROM ProductEntity p WHERE p.title = :title");
-        q.setParameter("title", title);
-        return q.getResultList();
+        TypedQuery<ProductEntity> query = em.createQuery("SELECT p FROM ProductEntity p WHERE title = :title", ProductEntity.class);
+        query.setParameter("title", title);
+        return query.getResultList();
     }
 }

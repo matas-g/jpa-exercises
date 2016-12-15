@@ -1,26 +1,33 @@
-/*
- * ex03
- */
-package lt.akademija.javatech;
+package lt.akademija.javatech.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "PRODUCT_SPECIFICATION")
 public class ProductSpecEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
     private Long id;
+
+    @Column(name = "SPEC_NAME")
     private String key;
+
+    @Column(name = "VALUE")
     private String value;
-    
-    // Bi-directional OneToMany/ManyToOne
-    // @ManyToOne(cascade = CascadeType.ALL)
-    // private ProductEntity product;
-    
+
+    /*
+     * TODO - Bi-directional OneToMany/ManyToOne
+     * 
+     * @ManyToOne(cascade = CascadeType.ALL) private ProductEntity product;
+     */
+
     // Getters and Setters
     public Long getId() {
         return id;

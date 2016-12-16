@@ -11,6 +11,8 @@ public interface ProductRepositoryInterface {
 
     ProductEntity save(ProductEntity p);
 
+    ProductEntity removeProductById(Long id);
+    
     List<ProductEntity> findAll();
 
     List<ProductEntity> findByTitle(String title);

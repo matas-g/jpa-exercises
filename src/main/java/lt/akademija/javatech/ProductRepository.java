@@ -17,8 +17,8 @@ public class ProductRepository implements ProductRepositoryInterface {
     @Autowired
     private EntityManager em;
 
-    @Override
     @Transactional
+    @Override
     public ProductEntity save(ProductEntity p) {
         if (p.getId() == null) {
             em.persist(p);
@@ -28,6 +28,17 @@ public class ProductRepository implements ProductRepositoryInterface {
             em.persist(merged);
             return merged;
         }
+    }
+    
+    // My removeProduct()
+    @Transactional
+    @Override
+    public ProductEntity removeProductById(Long id) {
+        ProductEntity foundProduct = em.find(ProductEntity.class, id);
+        if (foundProduct != null) {
+            em.remove(foundProduct);
+        }
+        return foundProduct;
     }
 
     @Override

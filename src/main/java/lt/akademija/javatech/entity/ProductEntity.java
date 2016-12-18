@@ -44,7 +44,7 @@ public class ProductEntity {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "PRODUCT_ID")
     private List<ProductSpecEntity> specifications;
-
+    
     // Getters and Setters
     public Long getId() {
         return id;

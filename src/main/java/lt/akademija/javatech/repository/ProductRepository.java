@@ -1,4 +1,4 @@
-package lt.akademija.javatech;
+package lt.akademija.javatech.repository;
 
 import java.util.List;
 

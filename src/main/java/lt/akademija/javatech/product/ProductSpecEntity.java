@@ -1,4 +1,4 @@
-package lt.akademija.javatech.entity;
+package lt.akademija.javatech.product;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

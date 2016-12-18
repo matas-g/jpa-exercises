@@ -1,10 +1,8 @@
-package lt.akademija.javatech.repository;
+package lt.akademija.javatech.product;
 
 import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
-
-import lt.akademija.javatech.entity.ProductEntity;
 
 @Transactional(readOnly = true)
 public interface ProductRepositoryInterface {

@@ -1,4 +1,4 @@
-package lt.akademija.javatech.entity;
+package lt.akademija.javatech.cart;
 
 import java.util.Date;
 import java.util.List;
@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import lt.akademija.javatech.product.ProductEntity;
 
 @Entity
 @Table(name = "CARTS")

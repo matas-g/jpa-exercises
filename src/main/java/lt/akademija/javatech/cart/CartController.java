@@ -1,4 +1,4 @@
-package lt.akademija.javatech.controller;
+package lt.akademija.javatech.cart;
 
 import java.util.List;
 
@@ -9,9 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import lt.akademija.javatech.entity.CartEntity;
-import lt.akademija.javatech.service.CartService;
 
 @RestController
 @RequestMapping("/api/carts")

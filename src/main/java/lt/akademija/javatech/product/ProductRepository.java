@@ -1,4 +1,4 @@
-package lt.akademija.javatech.repository;
+package lt.akademija.javatech.product;
 
 import java.util.List;
 
@@ -8,8 +8,6 @@ import javax.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
-import lt.akademija.javatech.entity.ProductEntity;
 
 @Repository
 public class ProductRepository implements ProductRepositoryInterface {

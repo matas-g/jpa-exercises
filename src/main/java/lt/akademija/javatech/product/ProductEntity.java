@@ -1,4 +1,4 @@
-package lt.akademija.javatech.entity;
+package lt.akademija.javatech.product;
 
 import java.util.List;
 

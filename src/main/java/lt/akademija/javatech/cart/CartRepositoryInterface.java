@@ -1,10 +1,8 @@
-package lt.akademija.javatech.repository;
+package lt.akademija.javatech.cart;
 
 import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
-
-import lt.akademija.javatech.entity.CartEntity;
 
 @Transactional(readOnly = true)
 public interface CartRepositoryInterface {

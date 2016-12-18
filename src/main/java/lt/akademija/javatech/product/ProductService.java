@@ -1,12 +1,9 @@
-package lt.akademija.javatech.service;
+package lt.akademija.javatech.product;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import lt.akademija.javatech.entity.ProductEntity;
-import lt.akademija.javatech.repository.ProductRepositoryInterface;
 
 @Service
 public class ProductService {
